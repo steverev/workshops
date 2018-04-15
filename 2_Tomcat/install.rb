@@ -32,7 +32,7 @@ end
 
 remote_file "/tmp/apache-tomcat-8.5.30.tar.gz" do
   source 'https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz'
-  not_if { ::File.exists?('/opt/tomcat')}
+  #not_if { ::File.exists?('/opt/tomcat')}
   #notifies :create, "template[#{extract_install}]"
   #not_if { ::File.exists?(/opt/tomcat) }
   #action :create_if_missing
