@@ -1,9 +1,9 @@
-#Install MongoDB
+# Install MongoDB
 
-##Goal
+## Goal
 Use Chef to successfully install MongoDB on a RHEL-based target system.
 
-##Steps taken to achieve the end result
+## Steps taken to achieve the end result
 Build and test process of Chef code
 >Edited recipe locally on Linux VM and ran chef-apply initially (later used chef-client --local-mode).
 > Followed instructions from install.rb in workshop git repo, and broke installation into pieces (create repository first, install package, create service - ensure enabled and started)
@@ -39,7 +39,7 @@ Used Virtualbox and a CentOS 7 VM with Chef-DK installed.  Atom editor / linter-
 >
 
 
-##Success Criteria
+## Success Criteria
 
 You should be prepared and able to demonstrate the following:
 
