@@ -1,6 +1,7 @@
-describe yum do
-  its('repos') { should include 'mongodb' }
-#  its('baseurl') { should include 'http://downloads-distro.mongodb.org/repo/redhat/os/x86_64' }
+describe yum.repo('mongodb') do
+  it { should exist }
+  it { should be_enabled }
+  its('baseurl') { should include 'http://downloads-distro.mongodb.org/repo/redhat/os/x86_64' }
 end
 
 describe package('mongodb-org') do
