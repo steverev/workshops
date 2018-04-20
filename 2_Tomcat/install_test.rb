@@ -9,13 +9,22 @@ if os.family == 'redhat'
     its('groups') { should eq ['tomcat'] }
   end
   # Need to add test for Tomcat binary
-
+  describe directory('/opt/tomcat') do
+    its('group') { should eq 'tomcat'}
+  end
+  describe directory('/opt/tomcat/conf') do
+    its('owner') { should eq 'tomcat'}
+  end
   describe systemd_service('tomcat') do
     it { should be_installed }
     it { should be_enabled }
     it { should be_running }
   end
+ 
+  describe port(8080) do
+    it { should be_listening }
+    its('processes') {should include 'java'}
+  end
 end
 
 
-# Add test that Tomcat is reachable on 8080 ?
