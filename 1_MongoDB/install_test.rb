@@ -14,6 +14,15 @@ if os.family == 'redhat'
     it { should be_enabled }
     it { should be_running }
   end
-end
+	
+  describe port(27017) do
+    it { should be_listening }
+    its('processes') { should include 'mongod' }
+  end   
+  
+  describe user('mongod') do
+    it { should exist }
+    its('shell') { should eq '/bin/false' }
+  end
 
-# Add test that mongodb is listening and reachable on port?
+end
